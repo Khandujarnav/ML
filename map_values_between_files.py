@@ -5,8 +5,8 @@ import numpy as np
 
 # Paths to the input files
 input_file = 'input.csv'  # Update with the correct path
-snr_file = 'output_labels.csv'  # Update with the correct path
-output_file = 'mapped_snr.csv'
+snr_file = 'output_without_first_column.csv'  # Update with the correct path
+output_file = 'mapped_output.csv'
 
 # Read the input file (CSV with 0 and 1 values)
 input_data = pd.read_csv(input_file, header=None, dtype=int)
@@ -62,3 +62,4 @@ mapped_snr_df = pd.DataFrame(mapped_snr_data)
 mapped_snr_df.to_csv(output_file, index=False, header=False)
 
 print(f'Mapped SNR data has been saved to {output_file}')
+
