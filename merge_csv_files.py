@@ -23,15 +23,12 @@ def merge_csv_files(file_paths, output_file_path):
 
 # Input the paths of the CSV files to merge
 file_paths = [
-    'labels_06-28-02_06_11_start0.csv',
-    'labels_06-28-02_06_11_start300.csv',
-    'labels_06-28-02_06_11_start600.csv',
-    'labels_06-28-02_06_11_start900.csv',
-    'labels_06-28-02_06_11_start1200.csv'
+    'mapped_snr_1500.csv',
+    'mapped_output_2700.csv',
 ]
 
 # Input the path for the output merged CSV file
-output_file_path = 'merged_output.csv'
+output_file_path = 'mapped_snr_4200.csv'
 
 # Call the function
 merge_csv_files(file_paths, output_file_path)

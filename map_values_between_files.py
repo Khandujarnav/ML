@@ -4,16 +4,25 @@ import pandas as pd
 import numpy as np
 
 # Paths to the input files
-input_file = 'input.csv'  # Update with the correct path
-snr_file = 'output_without_first_column.csv'  # Update with the correct path
-output_file = 'mapped_output.csv'
+input_file = 'input_test_5700-6000.csv'  # Update with the correct path
+snr_file = 'output_without_first_column_test_5700.csv'  # Update with the correct path
+output_file = 'mapped_output_5700.csv'
 
 # Read the input file (CSV with 0 and 1 values)
 input_data = pd.read_csv(input_file, header=None, dtype=int)
 
 # Read the SNR file (CSV with SNR values)
-snr_data = pd.read_csv(snr_file, header=None, dtype=float)
+def read_snr_file(filepath):
+    snr_data = []
+    with open(filepath, 'r') as file:
+        for line in file:
+            snr_values = line.strip().split(',')
+            snr_values = [float(value) for value in snr_values if value]  # Convert to float and filter out empty values
+            snr_data.append(snr_values)
+    return snr_data
 
+# Read the SNR file using the custom function
+snr_data = read_snr_file(snr_file)
 # Initialize the array to store mapped SNR values
 mapped_snr_data = []
 
@@ -26,7 +35,7 @@ for index in range(num_rows_to_process):
     mapped_row = np.zeros(80)
     
     # Get the corresponding SNR values for this row
-    snr_values = snr_data.iloc[index].dropna().values
+    snr_values = snr_data[index]
     
     # Ensure the number of SNR values matches the number of '1's in the input row
     row = input_data.iloc[index].values
@@ -44,7 +53,7 @@ for index in range(num_rows_to_process):
     
     # Append the mapped row to the list
     mapped_snr_data.append(mapped_row)
-
+'''
 # Fill rows starting from index 6 with random SNR values
 for index in range(num_rows_to_process, len(input_data)):
     mapped_row = np.zeros(80)
@@ -54,7 +63,7 @@ for index in range(num_rows_to_process, len(input_data)):
         # For 0s, we already have zeros in mapped_row
     
     mapped_snr_data.append(mapped_row)
-
+'''
 # Convert the list to a DataFrame
 mapped_snr_df = pd.DataFrame(mapped_snr_data)
 

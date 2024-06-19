@@ -1,7 +1,7 @@
 import csv
 
 def convert_txt_to_csv():
-    txt_file_path = 'labels_06-28-02_06_11_start1200.txt'
+    txt_file_path = 'labels_06-28-02_06_11_start5700.txt'
     csv_file_path = txt_file_path.rsplit('.', 1)[0] + '.csv'
     
     try:

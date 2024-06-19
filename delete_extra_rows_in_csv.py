@@ -1,7 +1,7 @@
 import csv
 
 def trim_csv_file():
-    csv_file_path = 'input copy.csv'
+    csv_file_path = 'labels_06-28-02_06_11_start5700.csv'
     
     try:
         # Read the existing CSV file
@@ -10,7 +10,7 @@ def trim_csv_file():
             rows = list(csv_reader)
         
         # Trim the rows to the first 300
-        trimmed_rows = rows[:1500]
+        trimmed_rows = rows[:300]
         
         # Write the trimmed rows back to the CSV file
         with open(csv_file_path, 'w', newline='') as csv_file:

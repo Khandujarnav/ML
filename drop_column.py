@@ -16,8 +16,8 @@ def drop_first_column(input_file_path, output_file_path):
         print(f"An error occurred: {e}")
 
 # Input and output file paths
-input_file_path = 'merged_output.csv'
-output_file_path = 'output_without_first_column.csv'
+input_file_path = 'labels_06-28-02_06_11_start5700.csv'
+output_file_path = 'output_without_first_column_test_5700.csv'
 
 # Call the function
 drop_first_column(input_file_path, output_file_path)
